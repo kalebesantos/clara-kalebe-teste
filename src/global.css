@@ -2,4 +2,13 @@
     .menu-text {
       display: none; /* Esconde os textos */
     }
+
+    #menu-item{
+      display: flex;
+      align-items: center;
+    }
+
+    #menu-item svg{
+      margin-right: 8px;
+    }
 }

@@ -78,6 +78,7 @@ function App() {
               </button>
 
               <button 
+                id='menu-item'
                 onClick={() => setActiveSection('videos')}
                 className={`flex items-center gap-1 ${activeSection === 'videos' ? 'text-rose-600' : 'text-gray-600'} hover:text-rose-600 transition-colors text-sm sm:text-base`}
               >
