@@ -3,12 +3,13 @@
       display: none; /* Esconde os textos */
     }
 
-    #menu-item{
+    #menu-item {
       display: flex;
       align-items: center;
     }
-
-    #menu-item svg{
-      margin-right: 8px;
+    
+    #menu-item svg {
+      margin: 10px;
+      margin-bottom: 0;
     }
 }
