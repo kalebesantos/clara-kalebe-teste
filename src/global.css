@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+    .menu-text {
+      display: none; /* Esconde os textos */
+    }
+}
