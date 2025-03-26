@@ -1,6 +1,6 @@
 //import React, { useState } from 'react';
 import { useState, useEffect } from 'react';
-import { Heart, ChevronRight, Camera, MessageCircleHeart, Flower, Video , Clock, Calendar} from 'lucide-react';
+import { Heart, ChevronRight, Camera, MessageCircleHeart, Flower, Video , Calendar} from 'lucide-react';
 import Gallery from './components/Gallery';
 import Declaration from './components/Declaration';
 import Flowers from './components/Flowers';

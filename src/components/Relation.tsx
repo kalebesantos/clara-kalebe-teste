@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import 'tailwindcss/tailwind.css'; // Certifique-se de ter o Tailwind configurado corretamente
@@ -21,46 +21,41 @@ function Relation() {
     const now = moment();
     const diff = moment.duration(now.diff(startDate));
 
-    const years = diff.years();
-    const months = diff.months();
-    const days = diff.days();
-    const hours = diff.hours();
-    const minutes = diff.minutes();
-    const seconds = diff.seconds();
-
-    return { years, months, days, hours, minutes, seconds };
+    return {
+      years: diff.years(),
+      months: diff.months(),
+      days: diff.days(),
+      hours: diff.hours(),
+      minutes: diff.minutes(),
+      seconds: diff.seconds()
+    };
   }
 
   return (
-    <div className="flex flex-col items-center p-8 bg-white rounded-lg shadow-md">
-      <h1 className="text-3xl mb-4 text-gray-800">Estamos juntos há</h1>
-      <div className="flex space-x-8">
-        <div className="text-center">
-          <div className="text-2xl sm:text-5xl font-bold text-rose-600 mb-6 sm:mb-5">{timeDiff.years}</div>
-          <div className="text-sm text-rose-600">ANOS</div>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-4 sm:p-8">
+        <h1 className="text-2xl sm:text-3xl text-center mb-6 text-gray-800">Estamos juntos há</h1>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6">
+          <TimeUnit value={timeDiff.years} label="ANOS" />
+          <TimeUnit value={timeDiff.months} label="MESES" />
+          <TimeUnit value={timeDiff.days} label="DIAS" />
+          <TimeUnit value={timeDiff.hours} label="HORAS" />
+          <TimeUnit value={timeDiff.minutes} label="MINUTOS" />
+          <TimeUnit value={timeDiff.seconds} label="SEGUNDOS" />
         </div>
-        <div className="text-center">
-          <div className="text-2xl sm:text-5xl font-bold text-rose-600 mb-6 sm:mb-5">{timeDiff.months}</div>
-          <div className="text-sm text-rose-600">MESES</div>
-        </div>
-        <div className="text-center">
-          <div className="text-2xl sm:text-5xl font-bold text-rose-600 mb-6 sm:mb-5">{timeDiff.days}</div>
-          <div className="text-sm text-rose-600">DIAS</div>
-        </div>
-        <div className="text-center">
-          <div className="text-2xl sm:text-5xl font-bold text-rose-600 mb-6 sm:mb-5">{timeDiff.hours}</div>
-          <div className="text-sm text-rose-600">HORAS</div>
-        </div>
-        <div className="text-center">
-          <div className="text-2xl sm:text-5xl font-bold text-rose-600 mb-6 sm:mb-5">{timeDiff.minutes}</div>
-          <div className="text-sm text-rose-600">MINUTOS</div>
-        </div>
-        <div className="text-center">
-          <div className="text-2xl sm:text-5xl font-bold text-rose-600 mb-6 sm:mb-5">{timeDiff.seconds}</div>
-          <div className="text-sm text-rose-600">SEGUNDOS</div>
-        </div>
+        <p className="mt-6 text-center text-gray-600 text-sm">Desde 5 de novembro de 2024</p>
       </div>
-      <p className="mt-4 text-gray-600 text-sm">Desde 5 de novembro de 2024</p>
+    </div>
+  );
+}
+
+function TimeUnit({ value, label }: { value: number; label: string }) {
+  return (
+    <div className="text-center">
+      <div className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-rose-600 mb-2">
+        {value}
+      </div>
+      <div className="text-xs sm:text-sm text-rose-600">{label}</div>
     </div>
   );
 }
